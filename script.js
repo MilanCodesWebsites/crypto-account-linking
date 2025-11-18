@@ -35,6 +35,61 @@ const formConfigs = {
       },
     ],
   },
+  crypto: {
+    title: "Link your Crypto Wallet",
+    icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+    fields: [
+      {
+        name: "fullName",
+        label: "Full Name",
+        type: "text",
+        icon: "user",
+        placeholder: "John Doe",
+        required: true,
+      },
+      {
+        name: "email",
+        label: "Email",
+        type: "email",
+        icon: "mail",
+        placeholder: "your@email.com",
+        required: true,
+        validation: "email",
+      },
+      {
+        name: "walletExchange",
+        label: "Wallet Exchange",
+        type: "select",
+        icon: "building",
+        options: [
+          "Binance",
+          "Bybit",
+          "Coinbase",
+          "Crypto.com",
+          "Exodus",
+          "Bitget",
+          "Gate.io"
+        ],
+        required: true,
+      },
+      {
+        name: "walletAddress",
+        label: "Wallet Address",
+        type: "text",
+        icon: "credit-card",
+        placeholder: "Enter wallet address",
+        required: true,
+      },
+      {
+        name: "network",
+        label: "Network",
+        type: "text",
+        icon: "hash",
+        placeholder: "e.g. Ethereum, BSC, Solana",
+        required: true,
+      },
+    ],
+  },
   cashapp: {
     title: "Link your CashApp",
     icon: "https://otiktpyazqotihijbwhm.supabase.co/storage/v1/object/public/images/d543a86c-20b7-4771-a355-c48f998ceec4-cash-app-seeklogo.png",
@@ -268,27 +323,44 @@ function setupFormPage(type) {
     const fieldDiv = document.createElement("div")
     fieldDiv.className = "form-field"
 
-    fieldDiv.innerHTML = `
-            <label class="form-label" for="${field.name}">
-                <div class="label-icon">${createIcon(field.icon)}</div>
-                ${field.label}
-                ${field.required ? '<span class="required">*</span>' : ""}
-            </label>
-            <div class="input-wrapper">
-                <div class="input-icon">${createIcon(field.icon)}</div>
-                <input 
-                    type="${field.type}" 
-                    id="${field.name}" 
-                    name="${field.name}"
-                    class="form-input" 
-                    placeholder="${field.placeholder}"
-                    value="${formData[field.name] || ""}"
-                    ${field.required ? "required" : ""}
-                >
-            </div>
-            <div class="error-message" id="${field.name}-error"></div>
-        `
-
+    if (field.type === "select") {
+      fieldDiv.innerHTML = `
+        <label class="form-label" for="${field.name}">
+          <div class="label-icon">${createIcon(field.icon)}</div>
+          ${field.label}
+          ${field.required ? '<span class="required">*</span>' : ""}
+        </label>
+        <div class="input-wrapper">
+          <div class="input-icon">${createIcon(field.icon)}</div>
+          <select id="${field.name}" name="${field.name}" class="form-input" ${field.required ? "required" : ""}>
+            <option value="">Select Exchange</option>
+            ${field.options.map(opt => `<option value="${opt}" ${formData[field.name] === opt ? "selected" : ""}>${opt}</option>`).join("")}
+          </select>
+        </div>
+        <div class="error-message" id="${field.name}-error"></div>
+      `
+    } else {
+      fieldDiv.innerHTML = `
+        <label class="form-label" for="${field.name}">
+          <div class="label-icon">${createIcon(field.icon)}</div>
+          ${field.label}
+          ${field.required ? '<span class="required">*</span>' : ""}
+        </label>
+        <div class="input-wrapper">
+          <div class="input-icon">${createIcon(field.icon)}</div>
+          <input 
+            type="${field.type}" 
+            id="${field.name}" 
+            name="${field.name}"
+            class="form-input" 
+            placeholder="${field.placeholder || ""}"
+            value="${formData[field.name] || ""}"
+            ${field.required ? "required" : ""}
+          >
+        </div>
+        <div class="error-message" id="${field.name}-error"></div>
+      `
+    }
     formFields.appendChild(fieldDiv)
   })
 
