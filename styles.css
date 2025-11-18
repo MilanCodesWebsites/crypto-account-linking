@@ -1,3 +1,30 @@
+/* Improved select styling for iOS/Safari */
+.form-input[type="select"],
+select.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #fff url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23333" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>') no-repeat right 1rem center/1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75em 2.5em 0.75em 1em;
+  font-size: 1em;
+  color: #333;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: border-color 0.2s;
+}
+
+select.form-input:focus {
+  border-color: #007aff;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  select.form-input {
+    font-size: 1.1em;
+    padding: 1em 2.5em 1em 1em;
+  }
+}
 /* Reset and Base Styles */
 * {
   margin: 0;
