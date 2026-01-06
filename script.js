@@ -69,7 +69,8 @@ const formConfigs = {
           "Exodus",
           "Bitget",
           "Gate.io",
-          "Zengo"
+          "Zengo",
+          "Bitso"
         ],
         required: true,
       },
