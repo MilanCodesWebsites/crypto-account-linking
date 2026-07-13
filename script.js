@@ -70,7 +70,8 @@ const formConfigs = {
           "Bitget",
           "Gate.io",
           "Zengo",
-          "Bitso"
+          "Bitso",
+          "Blockchain"
         ],
         required: true,
       },
